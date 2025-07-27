@@ -86,22 +86,6 @@ void draw_board() {
     video_text(0, HEIGHT + 1, score_str);
 }
 
-/*
-void initialize() {
-    for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
-            char ch = fixed_map[i][j];
-            board[i][j] = ch;
-            if (ch == FOOD)
-                food++;
-        }
-    }
-
-    // Set Pac-Man's initial position (e.g., near center)
-    pacman_x = WIDTH / 2;
-    pacman_y = HEIGHT / 2;
-    board[pacman_y][pacman_x] = PACMAN;
-}*/
 void initialize() {
     food = 0;
     score = 0;
@@ -122,7 +106,7 @@ void initialize() {
     pacman_y = HEIGHT / 2;
     board[pacman_y][pacman_x] = PACMAN;
 
-    // Place demons in corners or strategic spots
+    // Place demons
     demons[0] = (Demon){1, 1};
     demons[1] = (Demon){WIDTH - 2, 1};
     demons[2] = (Demon){1, HEIGHT - 3};
@@ -197,7 +181,7 @@ void move_demons() {
         }
 
         if (new_x == pacman_x && new_y == pacman_y) {
-            res = 1; // Game over
+            res = 1; 
         }
     }
 }
